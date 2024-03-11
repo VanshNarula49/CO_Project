@@ -1,0 +1,23 @@
+lw a5,20(s1)
+addi rd, rs, 
+sltiu rd, rs, im
+jalr ra,a5,-07
+lwa a5,20(s1)
+add s1,s2,s3
+sub rd, x0, rs 
+sub rd, rs1, rs2 
+slt rd, rs1, rs2 
+sltu rd, rv1, rs2 
+xor rd, rs1, rs2
+sll rd, rs1, rs2
+srl rd, rs1, rs2
+or rd, rs1, rs2 
+and rd, rs1, rs2
+sw ra,32(s)
+blt a4,a5,label
+lui rd, immediate
+auipc s2,-30
+auipc s2,
+auipc12 s2,-30
+jal rd, imm[20:1]
+jal ra,label

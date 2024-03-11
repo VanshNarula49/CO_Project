@@ -1,0 +1,2 @@
+jal rd, imm[20:1]
+jal ra,label

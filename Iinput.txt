@@ -1,0 +1,5 @@
+lw a5,20(s1)
+addi rd, rs, 
+sltiu rd, rs, im
+jalr ra,a5,-07
+lwa a5,20(s1)
