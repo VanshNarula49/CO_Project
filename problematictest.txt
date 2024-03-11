@@ -1,0 +1,5 @@
+beq s0,s1,12
+jal ra,-48
+blt s5,s6,16
+jal t1,32
+bltu a1,a7,32

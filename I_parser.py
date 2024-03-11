@@ -20,14 +20,19 @@ def I_parser(instruction):
             rtrn_addr_rgstr = rtrn_addr_rgstr.strip()
             src_rgstr1 = src_rgstr1.strip()
             imm = imm.strip()
+            imm = int(imm)  # Check if imm is an integer
         except ValueError:
-            return {'error': "Invalid parameter format for 'lw' instruction"}
+            return {'error': "Invalid imm"}
     else:
         params_parts = params.split(',')
         if len(params_parts) != 3:
             return {'error': "Invalid number of parameters"}
         
         rtrn_addr_rgstr, src_rgstr1, imm = map(str.strip, params_parts)
+        try:
+            imm = int(imm)
+        except ValueError:
+            return {'error': "Invalid imm"}  
     
     if not rtrn_addr_rgstr or not src_rgstr1 or not imm:
         return {'error': "One or more parameters are empty"}
@@ -39,9 +44,26 @@ def I_parser(instruction):
         'src_rgstr1': src_rgstr1,
         'imm': imm
     }
+from rgstrfncns import rgstr_func , imm_binary
 
-with open('Iinput.txt', 'r') as file:
-    for line in file:
-        print(line.strip())
-        print(I_parser(line.strip()))
+def I_binary(instruction):
+    if instruction['error'] == None:
+        if instruction['operation'] == 'lw':
+            return '1100000' + rgstr_func(instruction['rtrn_addr_rgstr']) + '010' + rgstr_func(instruction['src_rgstr1']) + imm_binary(instruction['imm'],12)
+            
+        elif instruction['operation'] == 'addi':
+            return '1100100' + rgstr_func(instruction['rtrn_addr_rgstr']) + '000' + rgstr_func(instruction['src_rgstr1']) + imm_binary(instruction['imm'],12)
+            
+        elif instruction['operation'] == 'sltiu':
+            return '1100100' + rgstr_func(instruction['rtrn_addr_rgstr']) + '110' + rgstr_func(instruction['src_rgstr1']) + imm_binary(instruction['imm'],12)
+            
+        elif instruction['operation'] == 'jalr':
+            return '1110011' + rgstr_func(instruction['rtrn_addr_rgstr']) + '000' + rgstr_func(instruction['src_rgstr1']) + imm_binary(instruction['imm'],12)
+    else :
+        return {'error': instruction['error']}
 
+# with open('Iinput.txt', 'r') as file:
+#     for line in file:
+#         print(line.strip())
+#         print(I_parser(line.strip()))
+#         print(I_binary(I_parser(line.strip())))

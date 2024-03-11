@@ -1,4 +1,4 @@
-lui rd, immediate
+lui rd, 20
 auipc s2,-30
 auipc s2,
 auipc12 s2,-30

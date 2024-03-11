@@ -1,5 +1,5 @@
-def J_parser(instruction):
-    J_ops = ['jal']  
+def U_parser(instruction):
+    U_ops = ['auipc','lui']
     
     parts = instruction.split(' ', 1)
     if len(parts) != 2:
@@ -7,8 +7,8 @@ def J_parser(instruction):
     
     instruction_code, params = parts
 
-    if instruction_code not in J_ops:
-        return {'error': "Invalid J operation"}
+    if instruction_code not in U_ops:
+        return {'error': "Invalid U operation"}
     
     params = params.replace(' ', '')  
     params_parts = params.split(',')
@@ -25,24 +25,28 @@ def J_parser(instruction):
         imm = int(imm)  
     except ValueError:
         return {'error': "Invalid imm"}
-
+    
     return {
         'error': None,
         'operation': instruction_code,
         'dstn_register': dstn_register,
         'imm': imm
     }
+
 from rgstrfncns import rgstr_func , imm_binary
-def J_binary(instruction):
+def U_binary(instruction):
     if instruction['error'] == None:
-        return '1111011' + rgstr_func(instruction['dstn_register'])  + imm_binary(instruction['imm'],20)[12:20] +imm_binary(instruction['imm'],20)[10]+imm_binary(instruction['imm'],20)[1:11]+imm_binary(instruction['imm'],20)[19]
+        if instruction['operation'] == 'lui':
+            return '1110110' + rgstr_func(instruction['dstn_register']) + imm_binary(instruction['imm'],32)[12:32]
+        elif instruction['operation'] == 'auipc':
+            return '1110100' + rgstr_func(instruction['dstn_register']) + imm_binary(instruction['imm'],32)[12:32]
 
     else:
         return {'error': instruction['error']}
 
-
-# with open('Jinput.txt', 'r') as file:
+# with open('Uinput.txt', 'r') as file:
 #     for line in file:
 #         print(line.strip())
-#         print(J_parser(line.strip()))
-#         print(J_binary(J_parser(line.strip())))
+#         print(U_parser(line.strip()))
+#         print(U_binary(U_parser(line.strip())))
+
