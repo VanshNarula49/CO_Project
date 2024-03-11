@@ -39,11 +39,25 @@ def main_parser(inputstr):
 f = open("output.txt", "w")
 
 
+
 with open('main.txt', 'r') as file:
-    
+    var = 0
     for line in file:
-        print(main_parser(line.strip())[::-1])
-        f.write(main_parser(line.strip())[::-1]+'\n')
+            var = var + 1
+            try:
+                 
+                 error = main_parser(line.strip())['error']
+                 print(main_parser(line.strip()))
+                #  f.write()
+                 f.write("error in line " +str(var)+ " " +str(main_parser(line.strip())))
+                 break
+            except:
+
+                print(main_parser(line.strip())[::-1])
+                f.write(main_parser(line.strip())[::-1]+'\n')
+            # 
+        
+
 f.close()
 
  

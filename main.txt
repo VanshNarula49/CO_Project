@@ -1,6 +1,6 @@
-add ra,t0,gp
+add ra,t0,a1
 sub t1,s0,a0
-sll a1,t2,t3
+sll a1,t2,a0
 slt s1,a2,s2
 sltu s3,a3,s4
 xor s5,a4,s6

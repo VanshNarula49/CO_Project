@@ -1,7 +1,7 @@
 
 def B_parser(instruction):
     B_ops = ['beq', 'bne', 'bge', 'bgeu', 'blt', 'bltu']
-    
+    x_values = ["s0", "fp", "s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10", "s11", "sp", "t0", "t1", "t2", "t3", "t4", "t5", "t6", "tp", "a0", "a1", "a2", "a3", "a4", "a5", "a6", "a7", "gp", "ra", "zero"]
     
     parts = instruction.split(' ', 1)
     if len(parts) < 2:
@@ -25,7 +25,8 @@ def B_parser(instruction):
         imm = int(imm)  # Check if imm is an integer
     except ValueError:
         return {'error': "Invalid imm"}
-    
+    if  src_rgtstr1 not in x_values or src_rgstr2 not in x_values:
+        return {'error': "One or more registers are not valid"}
     return {
         'error': None,
         'operation': instruction_code,
