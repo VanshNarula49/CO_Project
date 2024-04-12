@@ -40,7 +40,8 @@ def decode_B_binary(binaryi):
         'operation': operation,
         'src_rgstr1': src_rgstr1_name,
         'src_rgstr2': src_rgstr2_name,
-        'imm': imm
+        'imm': imm,
+        
     }
 
 

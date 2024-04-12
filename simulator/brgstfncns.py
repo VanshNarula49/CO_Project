@@ -18,3 +18,7 @@ def binary_to_reg_name(binary_input):
     return binary_to_name.get(reversed_binary_input, "Unknown Register")
 
 # Should return "a4"
+def sext(value, bits=32):
+
+    sign_bit = 1 << (bits - 1)
+    return (value & (sign_bit - 1)) - (value & sign_bit)
