@@ -42,6 +42,7 @@ def decode_I_binary(binaryi):
     }
 
 # Example usage
-binary_instruction = "00000001010001001010011100000011"  # Example binary instruction for 'lw'
+
+binary_instruction = "00000010000001110000000011100111"  # Example binary instruction for 'lw'
 decoded = decode_I_binary(binary_instruction)
 print(decoded)
