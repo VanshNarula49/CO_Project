@@ -1,3 +1,5 @@
+import os
+from memory import register,memory
 from B_R_Parser import decode_R_binary
 from B_I_Parser import decode_I_binary
 from B_B_Parser import decode_B_binary
@@ -24,13 +26,33 @@ def main_parser(binary):
     else:
         return "Invalid Opcode"
 
-f = open("./simulator/output.txt", "w")
 
-with open('./simulator/simin.txt', 'r') as file:
+def rgstr_print(binary):
+    main_parser(binary)
+    strng = ''
+    for key in register.values():
+        strng = strng + str(bin(key)[2:].zfill(32)) +' '
+    return strng
+
+
+
+
+f = open("output.txt", "w")
+instrcnnarr = ['']
+rgstrarr  = []
+
+
+with open('simin.txt', 'r') as file:
     for line in file:
-        output = main_parser(line.strip())
-        print(output)
-        f.write(str(output)+'\n')
+       instrcnnarr.append(line.split('\n')[0]) 
+halt = False
 
-f.close()
+while not halt:
+    oldpc = int(os.environ['pc'])
+    a = rgstr_print(instrcnnarr[int(os.environ['pc'])])
+    f.write(a+' ')
+    if int(os.environ['pc']) == oldpc:
+        os.environ['pc'] = str(int(os.environ['pc'])+1)
+for key in memory.keys():   
+    f.write(key+': '+str(bin(memory[key]))+'\n')
 

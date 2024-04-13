@@ -26,6 +26,6 @@ def decode_J_binary(binaryi):
         return "Unknown instruction"
 
 # Example usage
-# binary_instruction = '11000000000111111111000011101111'  # Example binary string for a 'jal' instruction
-# decoded_instruction = decode_J_binary(binary_instruction)
-# print(decoded_instruction)
+binary_instruction = '11000000000111111111000011101111'  # Example binary string for a 'jal' instruction
+decoded_instruction = decode_J_binary(binary_instruction)
+print(decoded_instruction)

@@ -1,20 +1,16 @@
 from B_J_Parser import decode_J_binary
-from memory import register,pc
+from memory import register
+import os
 
-def process_J_instruction(binary_instruction, pc):
+def process_J_instruction(decoded):
 
-    decoded = decode_J_binary(binary_instruction)
-    dstn_val = register[decoded['dstn_register']]
-    dstn_val = pc + 4
+    register[decoded["dstn_register"]] = int(os.environ['pc']) + 4
+    print(register)
 
-    print("rd: ", dstn_val)
+    os.environ['pc'] = str(int(os.environ['pc']) + decoded['imm'])
 
-    pc = pc + decoded['imm']
-
-    print ("pc: ", pc)
 
 #Example usage:
-binary_instruction = ''  # Example binary string for a 'jal' instruction
+binary_instruction = '11000000000111111111000011101111'  # Example binary string for a 'jal' instruction
 decoded_instruction = decode_J_binary(binary_instruction)
-print(decoded_instruction)
-process_J_instruction(binary_instruction, pc)
+process_J_instruction(decoded_instruction)

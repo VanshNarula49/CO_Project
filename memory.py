@@ -1,5 +1,7 @@
+import os
+os.environ["pc"] = '10'
 returnaddr = []
-pc = 10;
+
 register = {
         "s0/fp": 0,"asss1": -100 , "s2": 100, "s3":12 ,
         "s4": 0, "s5": 0, "s6": 0, "s7": 0,

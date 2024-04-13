@@ -1,11 +1,12 @@
 from B_B_Parser import decode_B_binary
-from memory import register,pc  # Assuming this function exists
+from memory import register  # Assuming this function exists
 from brgstfncns import unsingedint
+import os
 
-def process_B_instruction(decoded,pc,register):
+def process_B_instruction(decoded,register):
     # Decode the binary instruction
 
-    print(pc)
+
     # Retrieve the source register values
     src_val1 = register[decoded['src_rgstr1']]
     src_val2 = register[decoded['src_rgstr2']]
@@ -35,11 +36,10 @@ def process_B_instruction(decoded,pc,register):
     # If the condition is met, modify the program counter
     if should_branch:
           # Assuming PC is a global variable representing the program counter
-        pc = pc + imm  # Adjust PC based on the immediate value
-        print(pc)
+       os.environ['pc'] = str(int(os.environ['pc'])+imm)
         
 
 # Example usage
 binary_instruction = '00001100111101101100010001100011' 
 tDict = {'operation': 'bltu', 'src_rgstr1': 'asss1', 'src_rgstr2': 's2', 'imm': 200} # Example binary instruction
-process_B_instruction(tDict,pc,register)
+process_B_instruction(tDict,register)
