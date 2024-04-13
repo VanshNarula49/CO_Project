@@ -27,7 +27,7 @@ def decode_S_binary(binary_instruction):
         'src_rgstr1': src_rgstr1
     }
 
-# Example usage
-binary_instruction = "00000011001010011010000000100011" # Example binary instruction for 'sw'
-decoded = decode_S_binary(binary_instruction)
-print(decoded)
+# # Example usage
+# binary_instruction = "00000011001010011010000000100011" # Example binary instruction for 'sw'
+# decoded = decode_S_binary(binary_instruction)
+# print(decoded)

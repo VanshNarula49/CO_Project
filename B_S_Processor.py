@@ -9,6 +9,6 @@ def S_processor(dictS):
 
 
 # Example usage
-dict = decode_S_binary('00000011001010011010000000100011') 
-newmem = S_processor(dict)
-print(newmem)
+# dict = decode_S_binary('00000011001010011010000000100011') 
+# newmem = S_processor(dict)
+# print(newmem)

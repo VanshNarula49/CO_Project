@@ -14,8 +14,8 @@ def U_processor(dictU):
 
     return register
 
-# Example usage
-dictU = decode_U_binary('00000000000000000000100100010111') 
-print(dictU)
-newvals = U_processor(dictU)
-print(newvals)
+# # Example usage
+# dictU = decode_U_binary('00000000000000000000100100010111') 
+# print(dictU)
+# newvals = U_processor(dictU)
+# print(newvals)

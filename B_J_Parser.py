@@ -11,12 +11,13 @@ def decode_J_binary(binaryi):
 
         # Extract and reconstruct the immediate value from the binary string
         # Immediate value is split and needs to be reconstructed from different parts of the instruction
-        imm_20 = binary[31][::-1] + binary[12:20][::-1] + binary[20][::-1] + binary[21:31][::-1] + '0'
+        imm_20 = binary[31][::-1] + binary[12:20][::-1] + binary[20][::-1] + binary[21:31][::-1] 
+        imm_20 = imm_20[0:20] +'0'
         # Convert the binary immediate value to integer, considering sign extension for negative values
         imm_20_val = int(imm_20, 2)
         if imm_20[0] == '1':  # Check the sign bit for sign extension
             imm_20_val = imm_20_val - (1 << 21)  # Apply sign extension
-
+        print("imm_20",imm_20)
         return {
             'operation': 'jal',
             'dstn_register': dstn_rgstr,
@@ -25,7 +26,8 @@ def decode_J_binary(binaryi):
     else:
         return "Unknown instruction"
 
-# Example usage
-binary_instruction = '11000000000111111111000011101111'  # Example binary string for a 'jal' instruction
-decoded_instruction = decode_J_binary(binary_instruction)
-print(decoded_instruction)
+# # Example usage
+# binary_instruction = '11111111000111111111000011101111'  # Example binary string for a 'jal' instruction
+# decoded_instruction = decode_J_binary(binary_instruction)
+# print(decoded_instruction)
+# 11000000000111111111

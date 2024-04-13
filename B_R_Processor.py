@@ -60,8 +60,8 @@ def R_processor(dictR):
 
     return register
 
-# Example usage
-dict = decode_R_binary('00000000000010010000010010110011') ## add s1,s2,zero
-newvals = R_processor(dict)
-print (newvals)
-print(register['s1'])
+# # Example usage
+# dict = decode_R_binary('00000000000010010000010010110011') ## add s1,s2,zero
+# newvals = R_processor(dict)
+# print (newvals)
+# print(register['s1'])

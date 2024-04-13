@@ -3,7 +3,7 @@ from memory import register  # Assuming this function exists
 from brgstfncns import unsingedint
 import os
 
-def process_B_instruction(decoded,register):
+def process_B_instruction(decoded):
     # Decode the binary instruction
 
 
@@ -39,7 +39,7 @@ def process_B_instruction(decoded,register):
        os.environ['pc'] = str(int(os.environ['pc'])+imm)
         
 
-# Example usage
-binary_instruction = '00001100111101101100010001100011' 
-tDict = {'operation': 'bltu', 'src_rgstr1': 'asss1', 'src_rgstr2': 's2', 'imm': 200} # Example binary instruction
-process_B_instruction(tDict,register)
+# # Example usage
+# binary_instruction = '00001100111101101100010001100011' 
+# tDict = {'operation': 'bltu', 'src_rgstr1': 'asss1', 'src_rgstr2': 's2', 'imm': 200} # Example binary instruction
+# process_B_instruction(tDict,register)
