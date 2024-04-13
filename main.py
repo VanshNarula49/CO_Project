@@ -38,6 +38,7 @@ def rgstr_print(binary):
 
 
 f = open("output.txt", "w")
+print(f)
 instrcnnarr = ['']
 rgstrarr  = []
 
@@ -47,12 +48,21 @@ with open('simin.txt', 'r') as file:
        instrcnnarr.append(line.split('\n')[0]) 
 halt = False
 
-while not halt:
+while halt==False:
     oldpc = int(os.environ['pc'])
-    a = rgstr_print(instrcnnarr[int(os.environ['pc'])])
-    f.write(a+' ')
-    if int(os.environ['pc']) == oldpc:
-        os.environ['pc'] = str(int(os.environ['pc'])+1)
+    if instrcnnarr[int(os.environ['pc'])] == '00000000000000000000000001100011':
+        halt = True
+        break
+    else:
+        a = rgstr_print(instrcnnarr[int(os.environ['pc'])])
+        f.write(a+'\n')
+        rgstrarr.append(a)
+        if int(os.environ['pc']) == oldpc:
+            os.environ['pc'] = str(int(os.environ['pc'])+1)
+print(rgstrarr)
+
 for key in memory.keys():   
     f.write(key+': '+str(bin(memory[key]))+'\n')
+
+f.close()
 

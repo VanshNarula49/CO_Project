@@ -1,5 +1,5 @@
 import os
-os.environ["pc"] = '10'
+os.environ["pc"] = '1'
 returnaddr = []
 
 register = {
