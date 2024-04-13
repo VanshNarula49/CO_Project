@@ -1,0 +1,47 @@
+{'error': None, 'operation': 'add', 'dstn_rgstr': 's0/fp', 'src_rgstr1': 'zero', 'src_rgstr2': 'zero'}
+{'error': None, 'operation': 'addi', 'rtrn_addr_rgstr': 's1', 'src_rgstr1': 'zero', 'imm': 1}
+{'error': None, 'operation': 'add', 'dstn_rgstr': 's2', 'src_rgstr1': 'zero', 'src_rgstr2': 'zero'}
+{'error': None, 'operation': 'addi', 'rtrn_addr_rgstr': 's3', 'src_rgstr1': 'zero', 'imm': 6}
+{'operation': 'jal', 'dstn_register': 'ra', 'imm': 24}
+{'error': None, 'operation': 'add', 'dstn_rgstr': 's0/fp', 'src_rgstr1': 's1', 'src_rgstr2': 'zero'}
+{'error': None, 'operation': 'add', 'dstn_rgstr': 's1', 'src_rgstr1': 's2', 'src_rgstr2': 'zero'}
+{'error': None, 'operation': 'addi', 'rtrn_addr_rgstr': 's3', 'src_rgstr1': 's3', 'imm': -1}
+{'operation': 'bne', 'src_rgstr1': 's3', 'src_rgstr2': 'zero', 'imm': 4080}
+{'operation': 'beq', 'src_rgstr1': 'zero', 'src_rgstr2': 'zero', 'imm': 0}
+{'error': None, 'operation': 'add', 'dstn_rgstr': 's2', 'src_rgstr1': 's0/fp', 'src_rgstr2': 's1'}
+{'error': None, 'operation': 'jalr', 'rtrn_addr_rgstr': 'zero', 'src_rgstr1': 'ra', 'imm': 0}
+{'operation': 'beq', 'src_rgstr1': 'zero', 'src_rgstr2': 'zero', 'imm': 0}
+{'error': None, 'operation': 'addi', 'rtrn_addr_rgstr': 's0/fp', 'src_rgstr1': 'zero', 'imm': 2}
+{'error': None, 'operation': 'addi', 'rtrn_addr_rgstr': 's1', 'src_rgstr1': 'zero', 'imm': 16}
+{'error': None, 'operation': 'addi', 'rtrn_addr_rgstr': 's2', 'src_rgstr1': 'zero', 'imm': 1}
+{'error': None, 'operation': 'addi', 'rtrn_addr_rgstr': 's3', 'src_rgstr1': 'zero', 'imm': 3}
+{'error': None, 'operation': 'sll', 'dstn_rgstr': 's2', 'src_rgstr1': 's2', 'src_rgstr2': 's1'}
+{'error': None, 'operation': 'addi', 'rtrn_addr_rgstr': 't0', 'src_rgstr1': 'zero', 'imm': 1}
+{'operation': 'sw', 'imm': 0, 'rtrn_addr': 's0/fp', 'src_rgstr1': 's2'}
+{'error': None, 'operation': 'addi', 'rtrn_addr_rgstr': 's2', 'src_rgstr1': 's2', 'imm': 4}
+{'error': None, 'operation': 'sub', 'dstn_rgstr': 's0/fp', 'src_rgstr1': 's0/fp', 'src_rgstr2': 't0'}
+{'error': None, 'operation': 'sub', 'dstn_rgstr': 's3', 'src_rgstr1': 's3', 'src_rgstr2': 't0'}
+{'operation': 'beq', 'src_rgstr1': 's3', 'src_rgstr2': 'zero', 'imm': 36}
+{'operation': 'bne', 'src_rgstr1': 's0/fp', 'src_rgstr2': 'zero', 'imm': 4072}
+{'operation': 'sw', 'imm': 0, 'rtrn_addr': 's0/fp', 'src_rgstr1': 's2'}
+{'error': None, 'operation': 'addi', 'rtrn_addr_rgstr': 's2', 'src_rgstr1': 's2', 'imm': 4}
+{'error': None, 'operation': 'addi', 'rtrn_addr_rgstr': 't0', 'src_rgstr1': 'zero', 'imm': 1}
+{'error': None, 'operation': 'sub', 'dstn_rgstr': 's0/fp', 'src_rgstr1': 's0/fp', 'src_rgstr2': 't0'}
+{'error': None, 'operation': 'addi', 'rtrn_addr_rgstr': 't0', 'src_rgstr1': 'zero', 'imm': 29}
+{'error': None, 'operation': 'srl', 'dstn_rgstr': 's0/fp', 'src_rgstr1': 's0/fp', 'src_rgstr2': 't0'}
+{'operation': 'bne', 'src_rgstr1': 's0/fp', 'src_rgstr2': 'zero', 'imm': 4044}
+{'operation': 'beq', 'src_rgstr1': 'zero', 'src_rgstr2': 'zero', 'imm': 0}
+{'error': None, 'operation': 'add', 'dstn_rgstr': 's0/fp', 'src_rgstr1': 'zero', 'src_rgstr2': 'zero'}
+{'error': None, 'operation': 'addi', 'rtrn_addr_rgstr': 's1', 'src_rgstr1': 'zero', 'imm': -7}
+Invalid Opcode
+{'operation': 'sw', 'imm': 0, 'rtrn_addr': 's1', 'src_rgstr1': 's0/fp'}
+{'error': None, 'operation': 'addi', 'rtrn_addr_rgstr': 's1', 'src_rgstr1': 's1', 'imm': 1}
+{'error': None, 'operation': 'addi', 'rtrn_addr_rgstr': 's0/fp', 'src_rgstr1': 's0/fp', 'imm': 4}
+{'operation': 'sw', 'imm': 0, 'rtrn_addr': 's1', 'src_rgstr1': 's0/fp'}
+{'operation': 'auipc', 'dstn_register': 's0/fp', 'imm': 65536}
+{'error': None, 'operation': 'addi', 'rtrn_addr_rgstr': 's1', 'src_rgstr1': 's1', 'imm': 1}
+{'operation': 'sw', 'imm': 0, 'rtrn_addr': 's1', 'src_rgstr1': 's0/fp'}
+{'error': None, 'operation': 'addi', 'rtrn_addr_rgstr': 's0/fp', 'src_rgstr1': 's0/fp', 'imm': 4}
+{'error': None, 'operation': 'addi', 'rtrn_addr_rgstr': 's1', 'src_rgstr1': 's1', 'imm': 1}
+{'operation': 'sw', 'imm': 0, 'rtrn_addr': 's1', 'src_rgstr1': 's0/fp'}
+{'operation': 'beq', 'src_rgstr1': 'zero', 'src_rgstr2': 'zero', 'imm': 0}
