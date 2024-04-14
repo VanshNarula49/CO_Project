@@ -1,7 +1,6 @@
 from memory import register
 from brgstfncns import sext
 from B_R_Parser import decode_R_binary
-
 def R_processor(dictR):
     if dictR['operation'] == 'add':
         v1 = sext(register[dictR['src_rgstr1']]) #sext?
@@ -13,8 +12,10 @@ def R_processor(dictR):
         v3 = 0 - v2
         register[dictR['dstn_rgstr']] = v3
     elif dictR['operation'] == 'sub':
+        
         v1 = register[dictR['src_rgstr1']]
         v2 = register[dictR['src_rgstr2']]
+        
         v3 = v1 - v2
         register[dictR['dstn_rgstr']] = v3
     elif dictR['operation'] == 'slt':
@@ -42,6 +43,7 @@ def R_processor(dictR):
          v2 = register[dictR['src_rgstr2']]
          v3 = v1<<(int(format(v2,'032b')[::-1][0:5][::-1],2))
          register[dictR['dstn_rgstr']] = v3
+
     elif dictR['operation'] == 'srl':
          v1 = register[dictR['src_rgstr1']]
          v2 = register[dictR['src_rgstr2']]
@@ -58,10 +60,9 @@ def R_processor(dictR):
         v3 = v1&v2
         register[dictR['dstn_rgstr']] = v3
 
-    return register
+    
 
-# # Example usage
-# dict = decode_R_binary('00000000000010010000010010110011') ## add s1,s2,zero
+# Example usage
+# dict = decode_R_binary('00000001001001001001010010110011') ## add s1,s2,zero
 # newvals = R_processor(dict)
-# print (newvals)
-# print(register['s1'])
+

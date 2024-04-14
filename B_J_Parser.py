@@ -17,7 +17,7 @@ def decode_J_binary(binaryi):
         imm_20_val = int(imm_20, 2)
         if imm_20[0] == '1':  # Check the sign bit for sign extension
             imm_20_val = imm_20_val - (1 << 21)  # Apply sign extension
-        print("imm_20",imm_20)
+     
         return {
             'operation': 'jal',
             'dstn_register': dstn_rgstr,
@@ -26,8 +26,8 @@ def decode_J_binary(binaryi):
     else:
         return "Unknown instruction"
 
-# # Example usage
-# binary_instruction = '11111111000111111111000011101111'  # Example binary string for a 'jal' instruction
+# # # # Example usage
+# binary_instruction = '00000001100000000000000011101111'  # Example binary string for a 'jal' instruction
 # decoded_instruction = decode_J_binary(binary_instruction)
 # print(decoded_instruction)
 # 11000000000111111111

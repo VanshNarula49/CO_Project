@@ -51,7 +51,7 @@ def decode_R_binary(binaryi):
         'src_rgstr2': src_rgstr2
     }
 
-# Example usage
-# binary_instruction = "00000001001110010000010010110011" # Example binary instruction for 'add'
+# # Example usage
+# binary_instruction = "00000000000000000000010010110011" # Example binary instruction for 'add'
 # decoded = decode_R_binary(binary_instruction)
 # print(decoded)

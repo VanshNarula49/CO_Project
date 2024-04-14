@@ -15,10 +15,9 @@ from B_S_Processor import S_processor
 from B_U_Processor import U_processor
 
 
-
 def main_parser(binary):
     opcode = binary[::-1][:7]
-    print(binary)
+    # print(binary)
     if opcode == "1100110":
         decoded = decode_R_binary(binary)
         return R_processor(decoded)
@@ -31,7 +30,7 @@ def main_parser(binary):
     elif opcode == "1100011":
         decoded = decode_B_binary(binary)
         return process_B_instruction(decoded)
-    elif opcode == "1110100":
+    elif opcode in ["1110100","1110110"]:
         decoded = decode_U_binary(binary)
         return U_processor(decoded)
     elif opcode == "1111011":
@@ -42,7 +41,9 @@ def main_parser(binary):
 
 def rgstr_print(binary):
     main_parser(binary)
-    strng = ''
+    
+    register['zero'] = 0
+    strng = b_print(int(os.environ['pc'])*4)+' '
     for key in register.values():
         strng = strng + b_print(key) +' '
     return strng
@@ -51,7 +52,7 @@ def rgstr_print(binary):
 
 
 f = open("output.txt", "w")
-print(f)
+# print(f)
 instrcnnarr = ['']
 rgstrarr  = []
 
@@ -62,20 +63,29 @@ with open('input.txt', 'r') as file:
 halt = False
 
 while halt==False:
-    oldpc = int(os.environ['pc'])
+    print(register)
+    os.environ['pc'] = str(int(os.environ['pc'])+1)
+    print('pc',os.environ['pc'])
+    
+   
     if instrcnnarr[int(os.environ['pc'])] == '00000000000000000000000001100011':
-        halt = True
-        break
-    else:
+        # os.environ['pc'] = str(int(os.environ['pc'])-1)
         a = rgstr_print(instrcnnarr[int(os.environ['pc'])])
         f.write(a+'\n')
         rgstrarr.append(a)
-        if int(os.environ['pc']) == oldpc:
-            os.environ['pc'] = str(int(os.environ['pc'])+1)
-print(rgstrarr)
+        print('broke at',os.environ['pc'])
+        halt = True
+        break     
+    else:
+         a = rgstr_print(instrcnnarr[int(os.environ['pc'])])
+         f.write(a+'\n')
+         rgstrarr.append(a)
+         
+         
+# print(rgstrarr)
 
 for key in memory.keys():   
-    f.write(key+': '+b_print(memory[key])+'\n')
-
+    f.write(key+':'+b_print(memory[key])+'\n')
+file.close()
 f.close()
 

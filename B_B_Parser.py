@@ -23,10 +23,11 @@ def decode_B_binary(binaryi):
     
     # Reconstruct the immediate value
     imm_bits = imm_12 + imm_11 + imm_5_10 + imm_1_4 + '0'
-    imm = int(imm_bits, 2)
+
+    imm = int(imm_bits,2)
     # Adjust for sign extension if imm[12] (the sign bit) is '1'
     if imm_12 == '1':
-        imm -= 2**12
+        imm -= 2**13
     
     # Lookup the operation
     operation = op_codes[funct3]
@@ -46,7 +47,7 @@ def decode_B_binary(binaryi):
 
 
 
-# Example usage
-# binary_instruction = "00001101001001001110010001100011"#'00001100111101101100010001100011'  # Example binary instruction
+# # Example usage
+# binary_instruction = "11111110000010011001100011100011"#'00001100111101101100010001100011'  # Example binary instruction
 # decoded = decode_B_binary(binary_instruction)
 # print(decoded)

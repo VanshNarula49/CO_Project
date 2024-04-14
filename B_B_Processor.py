@@ -13,8 +13,7 @@ def process_B_instruction(decoded):
     usrc_val1 = unsingedint(src_val1)
     usrc_val2 = unsingedint(src_val2)
     imm = decoded['imm']
-    print("src: ",src_val1)
-    print("usrc: ",usrc_val1)
+
     
     # Initialize a variable to indicate whether to branch
     should_branch = False
@@ -36,7 +35,7 @@ def process_B_instruction(decoded):
     # If the condition is met, modify the program counter
     if should_branch:
           # Assuming PC is a global variable representing the program counter
-       os.environ['pc'] = str(int(os.environ['pc'])+imm)
+       os.environ['pc'] = str(int(os.environ['pc'])+int(imm/4)-1)
         
 
 # # Example usage
