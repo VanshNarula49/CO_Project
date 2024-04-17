@@ -7,7 +7,7 @@ def U_processor(dictU):
     if dictU['operation'] == 'lui':
         # Load Upper Immediate: Load imm into the upper 20 bits of the destination register
         register[dictU['dstn_register']] = dictU['imm']#sext(int(dictU['bin'] + 12*'0')) 
-        print(dictU['dstn_register'],'updated with ',dictU['imm'])
+       
     elif dictU['operation'] == 'auipc':
         # Add Upper Immediate to PC: Add imm to the program counter and store the result in the destination register
         # Assuming 'pc' is the program counter variable available globally or within context

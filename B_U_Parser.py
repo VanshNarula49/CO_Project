@@ -17,7 +17,7 @@ def decode_U_binary(binaryi):
 
     # Extract the immediate value from the binary string
     imm_binary = binary[12:32][::-1] +'0'*12  # Append zeros to the right to form a 32-bit value
-    print(imm_binary)
+ 
     imm_val = int(imm_binary, 2)
     if imm_binary[19] == '1':  # Check the sign bit for sign extension
         imm_val = imm_val - (1 << 32)  # Apply sign extension
