@@ -1,0 +1,3 @@
+jal rd, imm[20:1]
+jal ra,label
+jal ra,-1024

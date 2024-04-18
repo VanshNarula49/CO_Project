@@ -1,0 +1,3 @@
+add s1,s2,s3
+add ra,t0,gp
+sub t1,s0,a0
