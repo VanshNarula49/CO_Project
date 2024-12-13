@@ -36,7 +36,7 @@ def I_parser(instruction):
         except ValueError:
             return {'error': "Invalid imm"}  
     
-    if not rtrn_addr_rgstr or not src_rgstr1 or not imm:
+    if not rtrn_addr_rgstr or not src_rgstr1 or imm == None:
         return {'error': "One or more parameters are empty"}
     if rtrn_addr_rgstr not in x_values or src_rgstr1 not in x_values:
         return {'error': " register not valid"}

@@ -13,6 +13,11 @@ from B_J_Processor import process_J_instruction
 from B_R_Processor import R_processor
 from B_S_Processor import S_processor
 from B_U_Processor import U_processor
+from Bonus_Parser import decode_bonus_binary
+from Bonus_Processor import process_bonus_instruction
+import sys
+file_input = sys.argv[1]
+file_output = sys.argv[2]
 
 
 def main_parser(binary):
@@ -36,6 +41,9 @@ def main_parser(binary):
     elif opcode == "1111011":
         decoded = decode_J_binary(binary)
         return process_J_instruction(decoded)
+    elif opcode in ["0000000 ","1111111"]:
+        decoded = decode_bonus_binary(binary)
+        return process_bonus_instruction(decoded)
     else:
         return "Invalid Opcode"
 
@@ -51,29 +59,28 @@ def rgstr_print(binary):
 
 
 
-f = open("output.txt", "w")
+f = open(file_output, "w")
 # print(f)
 instrcnnarr = ['']
 rgstrarr  = []
 
 
-with open('input.txt', 'r') as file:
+with open(file_input, 'r') as file:
     for line in file:
        instrcnnarr.append(line.split('\n')[0]) 
 halt = False
 
 while halt==False:
-    print(register)
+    # print(register)
     os.environ['pc'] = str(int(os.environ['pc'])+1)
-    print('pc',os.environ['pc'])
-    
+    # print('pc',os.environ['pc'])
+  
    
-    if instrcnnarr[int(os.environ['pc'])] == '00000000000000000000000001100011':
+    if instrcnnarr[int(os.environ['pc'])] == '00000000000000000000000001100011' or instrcnnarr[int(os.environ['pc'])] == '00000000000000000000000000000000' :
         # os.environ['pc'] = str(int(os.environ['pc'])-1)
         a = rgstr_print(instrcnnarr[int(os.environ['pc'])])
         f.write(a+'\n')
         rgstrarr.append(a)
-        print('broke at',os.environ['pc'])
         halt = True
         break     
     else:
